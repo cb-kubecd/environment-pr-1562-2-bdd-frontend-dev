@@ -1,0 +1,82 @@
+
+Showing logs for build [32mcb-kubecd-environment-pr-1562-2-c4knl-1[0m stage [32mpr-checks[0m and container [32mstep-credential-initializer-gvz79[0m
+{"level":"info","ts":1593192417.387406,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
+{"level":"info","ts":1593192417.3883545,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mcb-kubecd-environment-pr-1562-2-c4knl-1[0m stage [32mpr-checks[0m and container [32mstep-working-dir-initializer-kwq78[0m
+{"level":"info","ts":1593192419.7146988,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1593192419.7168648,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mcb-kubecd-environment-pr-1562-2-c4knl-1[0m stage [32mpr-checks[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mcb-kubecd-environment-pr-1562-2-c4knl-1[0m stage [32mpr-checks[0m and container [32mstep-git-source-cb-kubecd-environment-pr-1562-2-c4knl-c5x5m[0m
+{"level":"info","ts":1593192433.0972707,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
+{"level":"info","ts":1593192434.2678518,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/cb-kubecd/environment-pr-1562-2-bdd-frontend-dev.git @ master in path /workspace/source"}
+
+Showing logs for build [32mcb-kubecd-environment-pr-1562-2-c4knl-1[0m stage [32mpr-checks[0m and container [32mstep-setup-builder-home[0m
+
+Showing logs for build [32mcb-kubecd-environment-pr-1562-2-c4knl-1[0m stage [32mpr-checks[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:6d9e4557947b11950fdb0c838679bb9240894e6c,1:42443d8bb122120846b3ba83b9ff2431e602d5e3
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin --unshallow 42443d8bb122120846b3ba83b9ff2431e602d5e3: 6d9e4557947b11950fdb0c838679bb9240894e6c:
+DEBUG: ran git fetch --unshallow origin 42443d8bb122120846b3ba83b9ff2431e602d5e3: 6d9e4557947b11950fdb0c838679bb9240894e6c: in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git branch
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git checkout master
+DEBUG: ran git checkout master in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git reset --hard 6d9e4557947b11950fdb0c838679bb9240894e6c
+DEBUG: ran git reset --hard 6d9e4557947b11950fdb0c838679bb9240894e6c in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git clean -fd .
+DEBUG: ran clean --force -d . in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git merge 42443d8bb122120846b3ba83b9ff2431e602d5e3
+DEBUG: ran git merge 42443d8bb122120846b3ba83b9ff2431e602d5e3 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git log --format=%H%x1f%an%x1f%ae%x1f%cn%x1f%ce%x1f%s%n%b%x1e 6d9e4557947b11950fdb0c838679bb9240894e6c..HEAD
+Merged SHA 42443d8bb122120846b3ba83b9ff2431e602d5e3 with commit message 'Add app **-app-ui 0.0.0-snapshot-pr-1562-2' into base branch master
+
+Showing logs for build [32mcb-kubecd-environment-pr-1562-2-c4knl-1[0m stage [32mpr-checks[0m and container [32mstep-verify-parameters[0m
+
+Showing logs for build [32mcb-kubecd-environment-pr-1562-2-c4knl-1[0m stage [32mpr-checks[0m and container [32mstep-lint-env-helm[0m
+rm -rf charts
+rm -rf requirements.lock
+helm init --client-only
+Creating /builder/home/.helm 
+Creating /builder/home/.helm/repository 
+Creating /builder/home/.helm/repository/cache 
+Creating /builder/home/.helm/repository/local 
+Creating /builder/home/.helm/plugins 
+Creating /builder/home/.helm/starters 
+Creating /builder/home/.helm/cache/archive 
+Creating /builder/home/.helm/repository/repositories.yaml 
+Adding stable repo with URL: https://kubernetes-charts.storage.googleapis.com 
+Adding local repo with URL: http://127.0.0.1:8879/charts 
+$HELM_HOME has been configured at /builder/home/.helm.
+Not installing Tiller due to 'client-only' flag having been set
+Happy Helming!
+helm repo add jenkins-x https://storage.googleapis.com/chartmuseum.jenkins-x.io
+"jenkins-x" has been added to your repositories
+helm repo add bitnami https://charts.bitnami.com/bitnami
+"bitnami" has been added to your repositories
+helm repo add stable https://kubernetes-charts.storage.googleapis.com
+"stable" has been added to your repositories
+** step helm build --boot --provider-values-dir=../kubeProviders
+WARNING: could not find a git repository in the directory .: No git conf dir found
+Ignoring templates/.gitignore
+Applying the kubernetes overrides at ../kubeProviders/gke/values.tmpl.yaml
+Wrote chart values.yaml values.yaml generated from directory tree
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+WARNING: No secrets found on "helm/repos" due: reading the secret "helm/repos" from vault: no secret "helm/repos" not found in vault
+Read credentials for http://jenkins-x-chartmuseum:8080 from vault helm/repos
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: chartmuseum.jenkins-x.io http://chartmuseum.jenkins-x.io
+WARNING: No secrets found on "helm/repos" due: reading the secret "helm/repos" from vault: no secret "helm/repos" not found in vault
+Read credentials for http://chartmuseum.jenkins-x.io from vault helm/repos
+Successfully added Helm repository chartmuseum.jenkins-x.io.
+Adding missing Helm repo: charts.cloudbees.com https://charts.cloudbees.com/c**d/cloudbees
+WARNING: No secrets found on "helm/repos" due: reading the secret "helm/repos" from vault: no secret "helm/repos" not found in vault
+Read credentials for https://charts.cloudbees.com/c**d/cloudbees from vault helm/repos
+Successfully added Helm repository charts.cloudbees.com.
+helm lint .
+==> Linting .
+Lint OK
+
+1 chart(s) linted, no failures
